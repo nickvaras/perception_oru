@@ -11,7 +11,7 @@ find_package(catkin REQUIRED COMPONENTS ndt_visualisation rosbag tf nav_msgs sen
 
 
 catkin_package(
-    DEPENDS libpcl-all-dev eigen
+    DEPENDS libpcl-all-dev EIGEN3
     CATKIN_DEPENDS ndt_visualisation rosbag tf nav_msgs sensor_msgs geometry_msgs message_filters ndt_map ndt_registration visualization_msgs pcl_ros velodyne_msgs velodyne_pointcloud tf_conversions eigen_conversions ndt_rviz
     INCLUDE_DIRS include
     LIBRARIES ${PROJECT_NAME}
@@ -21,8 +21,9 @@ include_directories(include ${catkin_INCLUDE_DIRS})
 
 #find_package(Eigen REQUIRED)
 #include_directories(${EIGEN_INCLUDE_DIRS})
-add_definitions(${EIGEN_DEFINITIONS})
+add_definitions(${EIGEN3_DEFINITIONS})
 find_package(OpenGL REQUIRED)
+find_package(Eigen3 REQUIRED )
 #find_package(GLUT REQUIRED)
 #find_package(JPEG REQUIRED)
 find_package(Boost REQUIRED COMPONENTS signals)
@@ -30,6 +31,8 @@ include_directories(${Boost_INCLUDE_DIRS})
 #include_directories(${JPEG_INCLUDE_DIR})
 #include_directories(${GLUT_INCLUDE_DIR})
 include_directories(${OPENGL_INCLUDE_DIR})
+include_directories(${EIGEN3_INCLUDE_DIRS})
+
 
 #if you want to use multi-threading
 find_package(OpenMP REQUIRED)

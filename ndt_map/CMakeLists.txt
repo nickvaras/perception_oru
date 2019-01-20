@@ -14,7 +14,6 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   nav_msgs
   cmake_modules
-#   geometry_msgs
   message_generation  )
 
 add_message_files(
@@ -29,7 +28,7 @@ generate_messages(
 )
 
 catkin_package(
-    DEPENDS Eigen3 PCL #OpenCV
+    DEPENDS EIGEN3 PCL #OpenCV
     CATKIN_DEPENDS cv_bridge message_runtime roscpp pcl_ros pcl_conversions std_msgs nav_msgs
     INCLUDE_DIRS include
     LIBRARIES ${PROJECT_NAME}
@@ -45,6 +44,7 @@ set (${PROJECT_NAME}_LIB_SRCS
 #	src/oc_tree.cpp
 #	src/adaptive_oc_tree.cpp
 )
+
 add_executable(histTest test/test_ndt_histogram.cc)
 add_library(${PROJECT_NAME} ${${PROJECT_NAME}_LIB_SRCS})
 #add_executable(jffSaveTest test/jffLazyGridTest_saving.cc)
@@ -60,8 +60,6 @@ include_directories(include
   ${PCL_INCLUDE_DIRS})
 
 add_definitions(${EIGEN3_DEFINITIONS})
-
-
 
 target_link_libraries(histTest ${PROJECT_NAME} ${catkin_LIBRARIES})
 #target_link_libraries(jffSaveTest ${catkin_LIBRARIES})

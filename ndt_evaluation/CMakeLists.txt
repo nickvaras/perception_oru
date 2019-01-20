@@ -14,7 +14,7 @@ else()
 endif()
 
 catkin_package(
-    DEPENDS eigen3 libpcl-all-dev
+    DEPENDS EIGEN3 libpcl-all-dev
     CATKIN_DEPENDS ndt_registration ndt_map ndt_generic tf tf_conversions pcl_ros
     INCLUDE_DIRS include
     LIBRARIES ${PROJECT_NAME}
